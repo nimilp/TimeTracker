@@ -7,6 +7,10 @@ angular.module('TimeTracker', ['ionic','TimeTracker.utils','TimeTracker.HomeCont
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    var mainTheme='bar-stable';
+    if(ionic.Platform.isAndroid()){
+      mainTheme='bar-positive';
+    }
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)

@@ -6,14 +6,14 @@ angular.module('TimeTracker.states',[])
     controller:'HomeController',
     templateUrl:'templates/menu.html'
   })
-.state('app.home',{
-  url:'/home',
-  views:{
-    'menuContent':{
-    controller:'HomeController',
-    templateUrl:'/templates/home/home.html'
-  }
-  }
-});
+  .state('app.home',{
+    url:'/home',
+    views:{
+      'menuContent':{
+        controller:'HomeController',
+        templateUrl:'templates/home/home.html'
+      }
+    }
+  });
   $urlRouterProvider.otherwise('app/home');
 });
