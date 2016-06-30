@@ -1,5 +1,5 @@
-angular.module('TimeTracker.ServiceController',[])
-.controller('ServiceController',['$http','$scope','utilities',function($http,$scope,$utilities){
+angular.module('TimeTracker.HomeController',[])
+.controller('HomeController',['$http','$scope','utilities','$state',function($http,$scope,$utilities,$state){
     $scope.getWeeks= function(){
 
       $scope.weeks = $utilities.getWeeks();

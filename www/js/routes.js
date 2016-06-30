@@ -1,0 +1,19 @@
+angular.module('TimeTracker.states',[])
+.config(function($stateProvider, $urlRouterProvider){
+  $stateProvider.state('app',{
+    url:'/app',
+    abstract:true,
+    controller:'HomeController',
+    templateUrl:'templates/menu.html'
+  })
+.state('app.home',{
+  url:'/home',
+  views:{
+    'menuContent':{
+    controller:'HomeController',
+    templateUrl:'/templates/home/home.html'
+  }
+  }
+});
+  $urlRouterProvider.otherwise('app/home');
+});
