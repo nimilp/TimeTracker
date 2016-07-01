@@ -7,6 +7,7 @@
       </ion-nav-buttons>
 
     </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
   </ion-side-menu-content>
   <ion-side-menu side="left">
     <ion-header-bar class="bar-stable">
@@ -17,8 +18,11 @@
         <div class="item" ui-sref="app.home" menu-close>
           <i class="icon ion-home"> </i>Home
         </div >
-        <div class="item" ui-sref="#" menu-close>
+        <div class="item" ui-sref="app.home" menu-close>
           <i class="icon ion-clock"> </i>Time Sheet
+        </div >
+        <div class="item" ui-sref="app.home" menu-close>
+          <i class="icon ion-clock"> </i>Add New Sheet
         </div >
       </div>
     </ion-content>

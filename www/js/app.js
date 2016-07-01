@@ -3,9 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('TimeTracker', ['ionic','TimeTracker.utils','TimeTracker.HomeController','TimeTracker.states'])
+angular.module('TimeTracker', ['ionic','TimeTracker.utils','TimeTracker.HomeController','TimeTracker.states','TimeSheetControllers','TimeSheetServiceFactory'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform,$rootScope,$ionicLoading) {
   $ionicPlatform.ready(function() {
     var mainTheme='bar-stable';
     if(ionic.Platform.isAndroid()){
@@ -25,4 +25,26 @@ angular.module('TimeTracker', ['ionic','TimeTracker.utils','TimeTracker.HomeCont
       StatusBar.styleDefault();
     }
   });
+  $rootScope.$on('loading:show',function(){
+        $ionicLoading.show({
+            template:'<p>Loading...</p><ion-spinner></ion-spinner>'
+        })
+    })
+    $rootScope.$on('loading:hide',function(){
+        $ionicLoading.hide()
+    })
+})
+.config(function($httpProvider){
+    $httpProvider.interceptors.push(function($rootScope){
+        return{
+            request: function(config){
+                $rootScope.$broadcast('loading:show')
+                return config
+            },
+            response: function(response){
+                $rootScope.$broadcast('loading:hide')
+                return response
+            }
+        }
+    })
 })

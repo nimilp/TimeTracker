@@ -14,6 +14,15 @@ angular.module('TimeTracker.states',[])
         templateUrl:'templates/home/home.html'
       }
     }
+  })
+  .state('app.timesheets',{
+    url:'/timesheets/{weekStartDay}',
+    views:{
+      'menuContent':{
+        controller:'TimeSheetsCtrl',
+        templateUrl:'templates/timesheets/timesheets.html'
+      }
+    }
   });
   $urlRouterProvider.otherwise('app/home');
 });
